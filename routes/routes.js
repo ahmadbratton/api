@@ -17,7 +17,7 @@ const todoSchema = new Schema({
 
 const todos = mongoose.model("todos" , todoSchema);
 
-router.get("/api/todos", function (req, res) {
+router.get("/api/todos/", function (req, res) {
   todos.find({}).then(function (todos) {
     if (todos) {
       res.setHeader("Content-Type", "application/json");
@@ -40,7 +40,7 @@ todos.findOne({todoid:req.params.id}).then(function (todo) {
 })
 });
 
-router.post("/api/todos", function (req, res) {
+router.post("/api/todos/", function (req, res) {
 let todo = new todos({
   todoid: req.body.todoid,
   title: req.body.title,
